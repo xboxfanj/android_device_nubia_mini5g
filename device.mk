@@ -12,64 +12,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# A/B
-AB_OTA_POSTINSTALL_CONFIG += \
-    RUN_POSTINSTALL_system=true \
-    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
-    FILESYSTEM_TYPE_system=ext4 \
-    POSTINSTALL_OPTIONAL_system=true
-
 PRODUCT_PACKAGES += \
     otapreopt_script
 
 # APEX
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
-# Boot
-PRODUCT_PACKAGES += \
-    android.hardware.boot@1.1-impl-qti.recovery
-
-# Fastboot
-PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.0-impl-mock \
-    fastbootd
-
-# GSI
-$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
-
 # Init
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom \
     $(LOCAL_PATH)/init.recovery.qcom.rc:recovery/root/init.recovery.qcom.rc
 
-# Kernel
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-    LOCAL_KERNEL := $(LOCAL_PATH)/kernel/Image
-else
-    LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
-
-# NFC
-PRODUCT_PACKAGES += \
-    NfcNci \
-    Tag \
-    SecureElement
-
 # Namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    device/oneplus/oneplus8
-
-# Partitions
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
+    device/nubia/mini5g
 
 # Shipping API
 PRODUCT_SHIPPING_API_LEVEL := 29
-
-# Update Engine
-PRODUCT_PACKAGES += \
-    update_engine \
-    update_engine_sideload \
-    update_verifier
