@@ -27,5 +27,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SOONG_NAMESPACES += \
     device/nubia/mini5g
 
+# Platform
+TARGET_BOARD_PLATFORM := msmnile
+
 # Shipping API
 PRODUCT_SHIPPING_API_LEVEL := 29
