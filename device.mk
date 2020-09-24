@@ -34,5 +34,9 @@ TARGET_BOARD_PLATFORM := msmnile
 TARGET_COMMON_QTI_COMPONENTS := \
     bt
 
+# Overlays
+PRODUCT_PACKAGES += \
+    Mini5GFrameworks
+
 # Shipping API
 PRODUCT_SHIPPING_API_LEVEL := 29
