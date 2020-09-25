@@ -42,6 +42,9 @@ TARGET_2ND_CPU_VARIANT := cortex-a76
 # Audio
 USE_XML_AUDIO_POLICY_CONF := 1
 
+# Bluetooth
+TARGET_USE_QTI_BT_STACK := true
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := msmnile
 
